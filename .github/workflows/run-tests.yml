@@ -11,8 +11,6 @@ jobs:
       matrix:
         # MicroPython is close to 3.4
         # TODO: Use MicroPython itself
-        python-version: ["3.4", "3.10"]
-        os: ["ubuntu-18.04", "ubuntu-20.04"]
         include:
           - python-version: 3.4
             os: ubuntu-18.04
