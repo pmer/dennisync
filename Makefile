@@ -4,15 +4,11 @@ init:
 
 .PHONY: test
 test:
-	pytest
-
-.PHONY: ci
-ci:
-	pytest --junitxml=report.xml
+	pytest --verbose
 
 .PHONY: coverage
 coverage:
-	pytest --cov-config .coveragerc --verbose --cov-report term --cov-report xml --cov=dennisync
+	pytest --cov-report=term --cov-report=xml --cov=dennisync
 
 .PHONY: flake8
 flake8:

@@ -3,7 +3,7 @@ name: Tests
 on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
@@ -12,9 +12,11 @@ jobs:
         # MicroPython is close to 3.4
         # TODO: Use MicroPython itself
         include:
-          - python-version: "3.4"
+          - id: py34
+            python-version: "3.4"
             os: ubuntu-18.04
-          - python-version: "3.10"
+          - id: py310
+            python-version: "3.10"
             os: ubuntu-20.04
 
     steps:
@@ -28,4 +30,21 @@ jobs:
         make
     - name: Run tests
       run: |
-        make ci
+        make coverage
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@1.1.3
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: coverage.xml
+        flag-name: run-${{ matrix.id }}
+        parallel: true
+
+  finish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        parallel-finished: true
