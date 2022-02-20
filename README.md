@@ -15,6 +15,7 @@
   - Messaging consists of back-and-forth sending of 100% of objects
   - Gossip to remain effective during scale to large numbers (e.g., 50) of microcontrollers in the same room
 - Concurrency safety (to some definition of "safe")
+  - E.g., concurrent syncs on a single device
 
 ### Questions
 
