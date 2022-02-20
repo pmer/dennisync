@@ -1,8 +1,11 @@
 [MESSAGES CONTROL]
 
 disable=
+    consider-using-f-string,
+    fixme,
     invalid-name,
     missing-class-docstring,
     missing-function-docstring,
     missing-module-docstring,
+    protected-access,
     too-few-public-methods,
