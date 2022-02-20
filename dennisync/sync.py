@@ -84,6 +84,7 @@ class Actor:
     def _on_message_entity(self, _msg):
         self.log("on_message_entity")
 
+    # TODO: Scheduling? Queueing (and memory)?
     @staticmethod
     def _send_request(con, table, name):
         msg = RequestMessage(table, name)
