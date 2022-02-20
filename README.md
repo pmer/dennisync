@@ -2,7 +2,7 @@
 
 ### Design
 
-Has a data model, I/O model, and concurrency model.
+Has a data model, I/O model, and concurrency model
 
 - Data model is list of list of objects
     - Outer list has fixed length and id
