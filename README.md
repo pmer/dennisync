@@ -25,9 +25,11 @@ Has a data model, I/O model, and concurrency model
   - Assume a continuous local scan
   - Make and receive bidirectional, peer-to-peer connections at every opportunity
   - Sync all data objects with last-write-wins
-    - Concurrent user state changes mean that after a sync sweep we can still be out-of-sync, but it is okay
+    - Concurrent user state changes mean that after a sync sweep we can still be out-of-sync, but
+      it is okay
   - Messaging consists of back-and-forth sending of 100% of objects
-  - Gossip to remain effective during scale to large numbers (e.g., 50) of microcontrollers in the same room
+  - Gossip to remain effective during scale to large numbers (e.g., 50) of microcontrollers in the
+    same room
 - Concurrency safety (to some definition of "safe")
   - E.g., concurrent syncs on a single device
 
@@ -41,9 +43,9 @@ Has a data model, I/O model, and concurrency model
 
 ### Limitations
 
-- A controller DB might enter into an inconsistent state while sync is in-progress and may stay that way if sync is
-  interrupted
-  - Could get better results if we had large RAM, and would be less likely if we used higher-bandwidth radio
+- A controller DB might enter into an inconsistent state while sync is in-progress and may stay
+  that way if sync is interrupted
+  - Probably the best we can get with RAM and radio constraints, and within a reasonable complexity
   - Noisy radio background / long range can irritate
 
 ### Requirements
@@ -54,13 +56,14 @@ Has a data model, I/O model, and concurrency model
 - Syncable data objects must have last-modified timestamps
 - Controller logic MUST gracefully handle inconsistent state
   - References to objects that don't exist
-    - E.g., player might be standing in a room that was never created (specifically, this DB never had it inserted)
+    - E.g., player might be standing in a room that was never created (specifically, this DB never
+      had it inserted)
     - Player is holding an object that "never existed"
   - Objects that are supposed to reference each other might not
   - Etc.
   - Any behavior is okay as long as it is not to crash
-    - Inconsistent states can (most of the time, if no mutations on the broken resources take place) be fixed with a
-      sync, i.e., by waiting
+    - Inconsistent states can (most of the time, if no mutations on the broken resources take
+      place) be fixed with a sync, i.e., by waiting
 - Transport layer to deal with packet segmentation on small-packet BLE messages
 - Secure connection?
 
