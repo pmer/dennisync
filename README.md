@@ -50,6 +50,7 @@ Has a data model, I/O model, and concurrency model
 
 - Syncable data objects must have ids, and they must not collide
   - Can be random or can be a millisecond creation timestamp
+  - Preferably, this id would not be revealed to a player for security reasons
 - Syncable data objects must have last-modified timestamps
 - Controller logic MUST gracefully handle inconsistent state
   - References to objects that don't exist
@@ -61,6 +62,7 @@ Has a data model, I/O model, and concurrency model
     - Inconsistent states can (most of the time, if no mutations on the broken resources take place) be fixed with a
       sync, i.e., by waiting
 - Transport layer to deal with packet segmentation on small-packet BLE messages
+- Secure connection?
 
 ### Judgement
 
