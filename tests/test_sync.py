@@ -11,8 +11,8 @@ def test_request():
     a = Actor(print, always_newer)
     con = Mock()
     con.send = Mock()
-    msg = AdvertiseMessage("table", "name", "timestamp")
+    msg = AdvertiseMessage("users", "Sam", "now")
 
     a.on_message(con, msg)
 
-    assert con.send.call_args == ((RequestMessage("table", "name"),),)
+    assert con.send.call_args == ((RequestMessage("users", "Sam"),),)
