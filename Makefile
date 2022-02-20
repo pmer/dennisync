@@ -2,9 +2,9 @@
 init:
 	pip install -r requirements.txt
 
-.PHONY: flake8
-flake8:
-	flake8 dennisync
+.PHONY: lint
+lint:
+	pylint dennisync tests
 
 .PHONY: test
 test:
