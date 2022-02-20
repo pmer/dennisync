@@ -5,8 +5,9 @@
 Has a data model, I/O model, and concurrency model
 
 - Data model is list of list of objects
-    - Outer list has fixed length and id
-    - Inner list has dynamic length and objects have ids and timestamps
+  - Outer list has fixed length and id
+    - Basically just the list of DB tables
+  - Inner list has dynamic length and objects have ids and timestamps
 - I/O model is assumed to be:
   - Bluetooth LE
   - Assume a continuous local scan
