@@ -47,6 +47,6 @@
 ### Judgement
 
 - Correctness
-- CPU speed, memory consumption, network bandwidth consumption
+- CPU, memory, and bandwidth consumption
   - Energy consumption
 - Sync speed
