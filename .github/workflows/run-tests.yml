@@ -21,19 +21,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
+
     - name: Install dependencies
       run: |
         make
+
     - name: Run tests
       run: |
         make ci
-    - name: Upload coverage to Coveralls
+
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
       if: matrix.coveralls == true
-      run: |
-        make coveralls
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
