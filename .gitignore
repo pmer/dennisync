@@ -1,5 +1,7 @@
 .coverage
 .idea
+.pytest_cache
 __pycache__
-coverage.xml
-report.xml
+coverage.lcov
+htmlcov
+venv

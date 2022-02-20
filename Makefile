@@ -2,22 +2,16 @@
 init:
 	pip install -r requirements.txt
 
+.PHONY: flake8
+flake8:
+	flake8 dennisync
+
 .PHONY: test
 test:
 	pytest --verbose
 
 .PHONY: coverage
 coverage:
-	pytest --cov=dennisync
-
-.PHONY: ci
-ci:
-	coverage run --source=dennisync -m pytest
-
-.PHONY: coveralls
-coveralls:
-	coveralls
-
-.PHONY: flake8
-flake8:
-	flake8 dennisync
+	coverage run -m pytest
+	coverage lcov
+	coverage report -m

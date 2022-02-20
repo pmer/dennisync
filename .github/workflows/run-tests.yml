@@ -28,15 +28,17 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Install dependencies
-      run: |
-        make
+      run: make
 
-    - name: Run tests
-      run: |
-        make ci
+    - name: Flake8
+      run: make flake8
+
+    - name: Coverage
+      run: make coverage
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
       if: matrix.coveralls == true
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: coverage.lcov
