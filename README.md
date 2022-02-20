@@ -42,7 +42,7 @@
     - Player is holding an object that "never existed"
   - Objects that are supposed to reference each other might not
   - Etc.
-- Needs a transport layer to deal with packet segmentation on small-packet BLE messages
+- Transport layer to deal with packet segmentation on small-packet BLE messages
 
 ### Judgement
 
