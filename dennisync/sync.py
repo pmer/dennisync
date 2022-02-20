@@ -67,25 +67,25 @@ class Actor:
     def on_message(self, con, msg):
         # TODO: Message validation. raise?
         if msg.type == MSG_ADVERTISE:
-            self.on_message_advertise(con, msg)
+            self._on_message_advertise(con, msg)
         elif msg.type == MSG_REQUEST:
-            self.on_message_request(msg)
+            self._on_message_request(msg)
         elif msg.type == MSG_ENTITY:
-            self.on_message_entity(msg)
+            self._on_message_entity(msg)
 
-    def on_message_advertise(self, con, msg):
+    def _on_message_advertise(self, con, msg):
         self.log("on_message_advertise")
         if self.is_newer(msg.table, msg.name, msg.timestamp):
-            Actor.send_request(con, msg.table, msg.name)
+            Actor._send_request(con, msg.table, msg.name)
 
-    def on_message_request(self, _msg):
+    def _on_message_request(self, _msg):
         self.log("on_message_request")
 
-    def on_message_entity(self, _msg):
+    def _on_message_entity(self, _msg):
         self.log("on_message_entity")
 
     @staticmethod
-    def send_request(con, table, name):
+    def _send_request(con, table, name):
         msg = RequestMessage(table, name)
         con.send(msg)
 
