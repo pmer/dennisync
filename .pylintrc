@@ -8,4 +8,5 @@ disable=
     missing-function-docstring,
     missing-module-docstring,
     protected-access,
+    redefined-outer-name,
     too-few-public-methods,
