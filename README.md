@@ -1,5 +1,7 @@
 # Sync protocol for DennisMUD
 
+[![Tests](https://github.com/pmer/dennisync/actions/workflows/run-tests.yml/badge.svg)](https://github.com/pmer/dennisync/actions/workflows/run-tests.yml)
+
 ### Running
 
 Library tests can be run with:
