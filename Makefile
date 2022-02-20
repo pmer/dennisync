@@ -8,7 +8,7 @@ flake8:
 
 .PHONY: test
 test:
-	pytest --verbose
+	pytest
 
 .PHONY: coverage
 coverage:
