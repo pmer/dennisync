@@ -50,3 +50,5 @@
 - CPU, memory, and bandwidth consumption
   - Energy consumption
 - Sync speed
+  - 1:1
+  - Room of 50
