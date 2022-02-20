@@ -8,7 +8,15 @@ test:
 
 .PHONY: coverage
 coverage:
-	pytest --cov-report=term --cov-report=xml --cov=dennisync
+	pytest --cov=dennisync
+
+.PHONY: ci
+ci:
+	coverage run --source=dennisync -m pytest
+
+.PHONY: coveralls
+coveralls:
+	coveralls
 
 .PHONY: flake8
 flake8:
