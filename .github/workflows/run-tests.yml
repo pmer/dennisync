@@ -30,6 +30,9 @@ jobs:
     - name: Install dependencies
       run: make
 
+    - name: Format
+      run: make format
+
     - name: Lint
       if: matrix.coveralls == true
       run: make lint

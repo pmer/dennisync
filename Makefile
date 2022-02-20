@@ -4,7 +4,7 @@ init:
 
 .PHONY: format
 format:
-	black dennisync tests
+	black --quiet dennisync tests
 
 .PHONY: lint
 lint:
