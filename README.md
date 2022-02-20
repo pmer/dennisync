@@ -46,7 +46,7 @@ Has a data model, I/O model, and concurrency model
 - A controller DB might enter into an inconsistent state while sync is in-progress and may stay
   that way if sync is interrupted
   - Probably the best we can get with RAM and radio constraints, and within a reasonable complexity
-  - Noisy radio background / long range can irritate
+  - Noisy radio, long range radio, or overloaded CPU can irritate
 
 ### Requirements
 
