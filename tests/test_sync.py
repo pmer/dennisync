@@ -15,4 +15,4 @@ def test_request():
 
     a.on_message(con, msg)
 
-    assert con.send.call_args.args == (RequestMessage("table", "name"),)
+    assert con.send.call_args == ((RequestMessage("table", "name"),),)
