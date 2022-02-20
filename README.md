@@ -38,8 +38,9 @@
 - Syncable data objects must have last-modified timestamps
 - Controller logic MUST gracefully handle inconsistent state
   - References to objects that don't exist
-  - Objects that are supposed to reference each other might not
     - E.g., player might be standing in a room that was never created (specifically, this DB never had it inserted)
+    - Player is holding an object that "never existed"
+  - Objects that are supposed to reference each other might not
   - Etc.
 - Needs a transport layer to deal with packet segmentation on small-packet BLE messages
 
