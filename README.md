@@ -45,6 +45,9 @@ Has a data model, I/O model, and concurrency model
     - Player is holding an object that "never existed"
   - Objects that are supposed to reference each other might not
   - Etc.
+  - Any behavior is okay as long as it is not to crash
+    - Inconsistent states can (most of the time, if no mutations on the broken resources take place) be fixed with a
+      sync, i.e., by waiting
 - Transport layer to deal with packet segmentation on small-packet BLE messages
 
 ### Judgement
