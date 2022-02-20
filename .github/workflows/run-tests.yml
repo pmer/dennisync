@@ -3,55 +3,53 @@ name: Tests
 on: [push, pull_request]
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
+  python34:
+    runs-on: ubuntu-18.04
     timeout-minutes: 10
     strategy:
       fail-fast: false
-      matrix:
-        # MicroPython is close to 3.4
-        # TODO: Use MicroPython itself
-        include:
-          - coveralls: false
-            python-version: "3.4"
-            os: ubuntu-18.04
-          - coveralls: true
-            python-version: "3.10"
-            os: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python 3.4
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.4
+
+      - name: Install dependencies
+        run: make init-34
+
+      - name: Test
+        run: make test
+
+  modern-python:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.10
       uses: actions/setup-python@v2
       with:
-        python-version: ${{ matrix.python-version }}
-
-    - name: Install Python 3.4 dependencies
-      if: matrix.python-version == 3.4
-      run: make init-34
+        python-version: 3.10
 
     - name: Install dependencies
-      if: matrix.python-version != 3.4
       run: make init
 
     - name: Format
       run: make format
 
     - name: Lint
-      if: matrix.coveralls == true
       run: make lint
 
-    - name: Test
-      if: matrix.coveralls == false
-      run: make test
-
     - name: Coverage
-      if: matrix.coveralls == true
       run: make coverage
 
     - name: Coveralls
-      if: matrix.coveralls == true
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
