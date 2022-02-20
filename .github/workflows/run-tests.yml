@@ -27,8 +27,13 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
+    - name: Install old dependencies
+      if: matrix.python-version == "3.4"
+      run: make init-old
+
     - name: Install dependencies
-      run: make
+      if: matrix.python-version != "3.4"
+      run: make init
 
     - name: Format
       run: make format

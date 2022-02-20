@@ -2,6 +2,10 @@
 init:
 	pip install -r requirements.txt
 
+.PHONY: init-34
+init-34:
+	pip install -r requirements-34.txt
+
 .PHONY: format
 format:
 	black --quiet dennisync tests
