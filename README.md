@@ -1,5 +1,14 @@
 # Sync protocol for DennisMUD
 
+### Running
+
+Library tests can be run with:
+
+```sh
+make init
+make test
+```
+
 ### Design
 
 Has a data model, I/O model, and concurrency model
