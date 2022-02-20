@@ -1,6 +1,7 @@
 # Sync protocol for DennisMUD
 
 [![Tests](https://github.com/pmer/dennisync/actions/workflows/run-tests.yml/badge.svg)](https://github.com/pmer/dennisync/actions/workflows/run-tests.yml)
+[![Coverage Status](https://coveralls.io/repos/github/pmer/dennisync/badge.svg?branch=main)](https://coveralls.io/github/pmer/dennisync?branch=main)
 
 ### Running
 
