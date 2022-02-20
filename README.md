@@ -33,7 +33,8 @@
 
 ### Requirements
 
-- Syncable data objects must have ids, and they must be random and not collide
+- Syncable data objects must have ids, and they must not collide
+  - Can be random or can be a millisecond creation timestamp
 - Syncable data objects must have last-modified timestamps
 - Controller logic MUST gracefully handle inconsistent state
   - References to objects that don't exist
