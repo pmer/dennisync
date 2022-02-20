@@ -12,9 +12,9 @@ jobs:
         # MicroPython is close to 3.4
         # TODO: Use MicroPython itself
         include:
-          - python-version: 3.4
+          - python-version: "3.4"
             os: ubuntu-18.04
-          - python-version: 3.10
+          - python-version: "3.10"
             os: ubuntu-20.04
 
     steps:
