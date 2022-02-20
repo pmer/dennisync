@@ -14,7 +14,7 @@
     - Concurrent user state changes mean that after a sync sweep we can still be out-of-sync, but it is okay
   - Messaging consists of back-and-forth sending of 100% of objects
   - Gossip to remain effective during scale to large numbers (e.g., 50) of microcontrollers in the same room
-- Concurrency safe (to some definition of "safe")
+- Concurrency safety (to some definition of "safe")
 
 ### Questions
 
