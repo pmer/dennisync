@@ -2,7 +2,8 @@
 
 ### Design
 
-- Abstract data and I/O models to ease integration
+Has a data model, I/O model, and concurrency model.
+
 - Data model is list of list of objects
     - Outer list has fixed length and id
     - Inner list has dynamic length and objects have ids and timestamps
@@ -53,3 +54,10 @@
 - Sync speed
   - 1:1
   - Room of 50
+
+### Implementation / this repo
+
+- Library-type design
+- Abstract data model and I/O
+- Unit tests
+- Dummy program to test on real hardware
